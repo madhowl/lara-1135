@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class PostInCategoryController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(string $slug)
     {
-        $posts = Post::latest()->paginate(15);
+        $category = Category::where('slug', $slug)->first();
+        $posts = $category->posts()->paginate(15);
         $categories = Category::withCount('posts')->get();
         return view('frontend.blog',compact('posts','categories'));
     }

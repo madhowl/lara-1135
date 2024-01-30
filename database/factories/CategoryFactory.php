@@ -17,7 +17,7 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->word();
+        $title = fake()->city();
         $slug = Str::slug($title, '-');
         return [
             'title'=>$title,

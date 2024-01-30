@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\Frontend\IndexController;
-use App\Http\Controllers\Frontend\CategoryController;
+use App\Http\Controllers\Frontend\PostsListController;
+use App\Http\Controllers\Frontend\PostInCategoryController;
+use \App\Http\Controllers\Frontend\SinglePostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,9 @@ use App\Http\Controllers\Frontend\CategoryController;
 |
 */
 
-Route::get('/',IndexController::class)->name('home');
-Route::get('/category/{slug}',CategoryController::class)->name('category');
+Route::get('/', PostsListController::class)->name('home');
+Route::get('/category/{slug}', PostInCategoryController::class)->name('category');
+Route::get('/post/{slug}', SinglePostController::class)->name('post');
 Route::get('/post',[PostController::class, 'index'])->name('post.index');
 //Route::resource('/category',\App\Http\Controllers\CategoryController::class)->parameters(['categories' => 'category:slug',]);
 ;

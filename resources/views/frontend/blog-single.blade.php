@@ -1,14 +1,14 @@
-@extends('layout')
+@extends('frontend.layout')
 @section('title', 'Page Title')
 @section('content')
 
               <article class="entry">
                 <div class="entry-img">
-                  <img src="/img/uploads/{{$article['image']}}" alt="" class="img-fluid">
+                  <img src="{{$post['image']}}" alt="" class="img-fluid">
                 </div>
 
                 <h2 class="entry-title">
-                  <a href="/article/{{$article['id']}}">{{$article['title']}}</a>
+                  <a href="/article/{{$post['id']}}">{{$post['title']}}</a>
                 </h2>
 
                 <div class="entry-meta">
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="entry-content">
-                  <p>{{$article['content']}}</p>
+                  <p>{{$post['content']}}</p>
 
                 </div>
 

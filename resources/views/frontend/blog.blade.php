@@ -8,18 +8,19 @@
                 </div>
 
                 <h2 class="entry-title">
-                  <a href="/post/{{$post['id']}}">{{$post['title']}}</a>
+                  <a href="/post/{{$post['slug']}}">{{$post['title']}}</a>
                 </h2>
 
                 <div class="entry-meta">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">Admin</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">Автор: Admin</a></li>
+                      <li class="d-flex align-items-center"><i class="bi bi-card-list"></i> <a href="#">Категория:  {{ $post->category->title }}</a></li>
                   </ul>
                 </div>
 
                 <div class="entry-content">
                   <div class="read-more">
-                    <a href="/post/{{$post['id']}}">Читать <i class="bi bi-arrow-right"></i></a>
+                    <a href="/post/{{$post['slug']}}">Читать <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
 
