@@ -25,7 +25,7 @@ class PostFactory extends Factory
             'category_id'=>rand(1,10),
             'description'=>fake()->realText(250),
             'active'=>1,
-            'image'=>fake()->imageUrl(640,480,'cats'),
+            'image'=>fake()->imageUrl(1024,768,'cats'),
             'content'=>fake()->realText(),
         ];
     }

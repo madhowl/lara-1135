@@ -1,14 +1,14 @@
 @extends('frontend.layout')
 @section('title', 'Page Title')
 @section('content')
-            @foreach ($articles as $article)
+            @foreach ($posts as $post)
               <article class="entry">
                 <div class="entry-img">
-                  <img src="{{$article['image']}}" alt="" class="img-fluid">
+                  <img src="{{$post['image']}}" alt="" class="img-fluid">
                 </div>
 
                 <h2 class="entry-title">
-                  <a href="/post/{{$article['id']}}">{{$article['title']}}</a>
+                  <a href="/post/{{$post['id']}}">{{$post['title']}}</a>
                 </h2>
 
                 <div class="entry-meta">
@@ -19,7 +19,7 @@
 
                 <div class="entry-content">
                   <div class="read-more">
-                    <a href="/post/{{$article['id']}}">Читать <i class="bi bi-arrow-right"></i></a>
+                    <a href="/post/{{$post['id']}}">Читать <i class="bi bi-arrow-right"></i></a>
                   </div>
                 </div>
 
@@ -27,7 +27,7 @@
             @endforeach
 
 
-                {!! $articles->onEachSide(1)->links() !!}
+                {!! $posts->onEachSide(1)->links() !!}
 
 
 @endsection
