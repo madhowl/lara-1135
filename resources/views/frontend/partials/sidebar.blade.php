@@ -12,7 +12,7 @@
     <div class="sidebar-item categories">
         <ul>
             @foreach($categories as $category)
-                <li><a href="/category/{{$category->id}}">
+                <li><a href="/category/{{$category->slug}}">
                         {{$category->title}} <span>({{$category->posts_count}})</span>
                     </a>
                 </li>

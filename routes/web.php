@@ -17,8 +17,8 @@ use App\Http\Controllers\Frontend\CategoryController;
 */
 
 Route::get('/',IndexController::class)->name('home');
+Route::get('/category/{slug}',CategoryController::class)->name('category');
 Route::get('/post',[PostController::class, 'index'])->name('post.index');
-Route::resource('/category',\App\Http\Controllers\CategoryController::class)
-    ->parameters(['categories' => 'category:slug',]);
+//Route::resource('/category',\App\Http\Controllers\CategoryController::class)->parameters(['categories' => 'category:slug',]);
 ;
 
