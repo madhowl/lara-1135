@@ -8,7 +8,7 @@
         </form>
     </div><!-- End sidebar search formn-->
 
-    <h3 class="sidebar-title">Categories</h3>
+    <h3 class="sidebar-title">Категории</h3>
     <div class="sidebar-item categories">
         <ul>
             @foreach($categories as $category)
