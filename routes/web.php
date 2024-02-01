@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\Frontend\PostsListController;
 use App\Http\Controllers\Frontend\PostInCategoryController;
 use \App\Http\Controllers\Frontend\SinglePostController;
+use \App\Http\Controllers\Backend\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,16 @@ Route::get('/', PostsListController::class)->name('home');
 Route::get('/category/{slug}', PostInCategoryController::class)->name('category');
 Route::get('/post/{slug}', SinglePostController::class)->name('post');
 Route::get('/post',[PostController::class, 'index'])->name('post.index');
-//Route::resource('/category',\App\Http\Controllers\CategoryController::class)->parameters(['categories' => 'category:slug',]);
-;
 
+
+Route::get('/login',function(){
+    return view('backend.login');
+});
+
+
+
+Auth::routes();
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
