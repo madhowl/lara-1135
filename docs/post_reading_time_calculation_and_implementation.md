@@ -50,3 +50,5 @@ return view(
 ### Наслаждаемся результатом. 
 
 ![Alt text](image/post_reading_time.png)
+
+[К содержанию](../README.md)
