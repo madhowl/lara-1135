@@ -22,8 +22,12 @@
                           <a href="/category/{{$post->category->slug}}">Категория: {{ $post->category->title }}</a>
                       </li>
                       <li class="d-flex align-items-center">
-                          <i class="bi bi-eye-fill"></i>
+                          <i class="bi bi-eye"></i>
                           Просмотров: {{ $post->view_count }}
+                      </li>
+                      <li class="d-flex align-items-center">
+                          <i class="bi bi-clock"></i>
+                          Время чтения: ~ {{ $readingTime }}
                       </li>
                   </ul>
                 </div>

@@ -17,7 +17,8 @@ class SinglePostController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
         PostShow::dispatch($post);
+        $readingTime = $post->calculateReadingTime($post->content);
         $categories = Category::withCount('posts')->get();
-        return view('frontend.blog-single',compact('post','categories'));
+        return view('frontend.blog-single',compact('post','categories', 'readingTime'));
     }
 }

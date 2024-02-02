@@ -2,7 +2,7 @@
 
 ## Создаём событие
 
-```php
+```bash
 php artisan make:event PostShow
 ```
 
@@ -22,7 +22,7 @@ php artisan make:event PostShow
 
 ## Создаём слушателя
 
-```php
+```bash
 php artisan make:listener IncrementVisitCountInPost
 ```
 
