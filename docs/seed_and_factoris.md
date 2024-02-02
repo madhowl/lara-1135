@@ -2,6 +2,10 @@
 
 создадим фабрику для модели **Post**:
 
+```bash
+php artisan make:factory PostFactory
+```
+
 ```php
 <?php
 
@@ -37,6 +41,10 @@ class PostFactory extends Factory
 }
 ```
 создадим фабрику для модели **Category**:
+
+```bash
+php artisan make:factory CategoryFactory
+```
 
 ```php
 <?php
