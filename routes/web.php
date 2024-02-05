@@ -19,19 +19,18 @@ use \App\Http\Controllers\Backend\AdminController;
 */
 
 Route::get('/', PostsListController::class)->name('home');
+Route::get('home', PostsListController::class)->name('home');
 Route::get('/category/{slug}', PostInCategoryController::class)->name('category');
 Route::get('/post/{slug}', SinglePostController::class)->name('post');
 Route::get('/post',[PostController::class, 'index'])->name('post.index');
 
 
-Route::get('/login',function(){
-    return view('backend.login');
-});
+
 
 
 
 Auth::routes();
 Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

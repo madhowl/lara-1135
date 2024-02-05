@@ -73,11 +73,13 @@
                         <hr class="dropdown-divider">
                     </li>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="/admin/logout">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Выйти</span>
-                        </a>
+                    <li >
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary w-100 m-2 ">
+                                <i class="bi bi-box-arrow-right"></i> Выйти
+                                </button>
+                        </form>
                     </li>
 
                 </ul><!-- End Profile Dropdown Items -->
