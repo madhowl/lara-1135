@@ -19,7 +19,7 @@ use \App\Http\Controllers\Backend\AdminController;
 */
 
 Route::get('/', PostsListController::class)->name('home');
-Route::get('home', PostsListController::class)->name('home');
+Route::get('/home', PostsListController::class)->name('home');
 Route::get('/category/{slug}', PostInCategoryController::class)->name('category');
 Route::get('/post/{slug}', SinglePostController::class)->name('post');
 Route::get('/post',[PostController::class, 'index'])->name('post.index');
