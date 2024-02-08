@@ -12,6 +12,10 @@
 
 [3. Фабрики и сиды](docs/seed_and_factoris.md)
 
+Blade
+
+[View Composer](docs/blade/view-composer.md)
+
 ---
 
 [Время чтения поста – расчет и реализация](docs/post_reading_time_calculation_and_implementation.md)
