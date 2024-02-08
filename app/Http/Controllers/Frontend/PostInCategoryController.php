@@ -14,8 +14,14 @@ class PostInCategoryController extends Controller
     public function __invoke(string $slug)
     {
         $category = Category::where('slug', $slug)->first();
-        $posts = $category->posts()->paginate(15);
-        $categories = Category::withCount('posts')->get();
-        return view('frontend.blog',compact('posts','categories'));
+
+        $posts = $category->posts()->addSelect(
+            [
+                'category_name' => Category::select('title')
+                    ->whereColumn('category_id', 'categories.id'),
+            ]
+        )->latest()->paginate(15);
+
+        return view('frontend.blog', compact('posts'));
     }
 }

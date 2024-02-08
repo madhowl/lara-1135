@@ -19,7 +19,7 @@
                     </li>
                     <li class="d-flex align-items-center">
                         <i class="bi bi-card-list"></i>
-                        <a href="#">Категория: {{ $post->category->title }}</a>
+                        <a href="/category/{{$post->category_slug}}">Категория: {{ $post->category_name}}</a>
                     </li>
                     <li class="d-flex align-items-center">
                         <i class="bi bi-eye-fill"></i>

@@ -20,38 +20,16 @@
         </ul>
     </div><!-- End sidebar categories-->
 
-    <h3 class="sidebar-title">Recent Posts</h3>
+    <h3 class="sidebar-title">Недавние Посты</h3>
+
     <div class="sidebar-item recent-posts">
+        @foreach($recent_posts as $r_post)
         <div class="post-item clearfix">
-            <img src="/assets/frontend/img/blog/blog-recent-1.jpg" alt="">
-            <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-            <time datetime="2020-01-01">Jan 1, 2020</time>
+            <img src="{{$r_post->image}}" alt="">
+            <h4><a href="/post/{{$r_post->slug}}">{{$r_post->title}}</a></h4>
+            <time datetime="2020-01-01">{{$r_post->created_at }}</time>
         </div>
-
-        <div class="post-item clearfix">
-            <img src="/assets/frontend/img/blog/blog-recent-2.jpg" alt="">
-            <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-            <time datetime="2020-01-01">Jan 1, 2020</time>
-        </div>
-
-        <div class="post-item clearfix">
-            <img src="/assets/frontend/img/blog/blog-recent-3.jpg" alt="">
-            <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-            <time datetime="2020-01-01">Jan 1, 2020</time>
-        </div>
-
-        <div class="post-item clearfix">
-            <img src="/assets/frontend/img/blog/blog-recent-4.jpg" alt="">
-            <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-            <time datetime="2020-01-01">Jan 1, 2020</time>
-        </div>
-
-        <div class="post-item clearfix">
-            <img src="/assets/frontend/img/blog/blog-recent-5.jpg" alt="">
-            <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-            <time datetime="2020-01-01">Jan 1, 2020</time>
-        </div>
-
+        @endforeach
     </div><!-- End sidebar recent posts-->
 
     <h3 class="sidebar-title">Tags</h3>
