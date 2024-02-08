@@ -14,8 +14,14 @@ class PostsListController extends Controller
      */
     public function __invoke()
     {
-        $posts = Post::latest()->paginate(15);
-        $categories = Category::withCount('posts')->get();
-        return view('frontend.blog',compact('posts','categories'));
+        $posts = Post::addSelect(
+            [
+                'category_name' => Category::select('title')
+                    ->whereColumn('category_id', 'categories.id'),
+                'category_slug' => Category::select('slug')
+                    ->whereColumn('category_id', 'categories.id'),
+            ]
+        )->latest()->paginate(15);
+        return view('frontend.blog',compact('posts'));
     }
 }
