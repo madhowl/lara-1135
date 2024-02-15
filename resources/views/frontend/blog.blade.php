@@ -28,6 +28,19 @@
                 </ul>
             </div>
 
+            <div class="entry-meta">
+                <ul>@foreach($post->tags as $tag)
+                    <li>
+                        <a href="/tag/{{$tag->slug}}">
+                            <span class="badge bg-secondary">
+                                {{$tag->name}}
+                            </span>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
             <div class="entry-content">
                 <div class="read-more">
                     <a href="/post/{{$post['slug']}}">Читать <i class="bi bi-arrow-right"></i></a>

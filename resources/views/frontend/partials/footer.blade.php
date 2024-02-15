@@ -81,9 +81,18 @@
 <script src="{{ asset('assets/frontend/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
 <script src="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.js')}}"></script>
 <script src="{{ asset('assets/frontend/vendor/php-email-form/validate.js')}}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+<script src="{{ asset('assets/frontend/vendor/jqcloud/jqcloud-1.0.0.js')}}"></script>
 
 <!-- Template Main JS File -->
 <script src="{{ asset('assets/frontend/js/main.js')}}"></script>
+
+<script type="text/javascript">
+
+    $(function() {
+        $("#my_favorite_latin_words").jQCloud(word_list);
+    });
+</script>
 
 </body>
 
