@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\PostInTagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Frontend\PostsListController;
@@ -22,6 +23,7 @@ Route::get('/', PostsListController::class)->name('home');
 Route::get('/home', PostsListController::class)->name('home');
 Route::get('/category/{slug}', PostInCategoryController::class)->name('category');
 Route::get('/post/{slug}', SinglePostController::class)->name('post');
+Route::get('/tag/{tag:slug}', PostInTagController::class)->name('tag');
 Route::get('/post',[PostController::class, 'index'])->name('post.index');
 
 
