@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('active')->default(1);
             $table->string('image')->nullable();
             $table->text('content');
+            $table->integer('view_count')->default(0);
             $table->timestamps();
         });
     }

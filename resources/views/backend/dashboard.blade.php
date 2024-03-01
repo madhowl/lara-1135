@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('backend.layout')
 @section('title')
 
  <li class="breadcrumb-item active">{{ $title }}</li>

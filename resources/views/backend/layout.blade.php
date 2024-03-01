@@ -10,25 +10,25 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="/assets/backend/img/favicon.png" rel="icon">
-    <link href="/assets/backend/backend/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{asset('/assets/backend/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('/assets/backend/backend/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="/assets/backend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/backend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/assets/backend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/assets/backend/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/assets/backend/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="{{asset('/assets/backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/assets/backend/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('/assets/backend/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/assets/backend/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+    <link href="{{asset('/assets/backend/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
-    <link rel="stylesheet" href="/assets/backend/vendor/izitoast/css/iziToast.min.css">
+    <link rel="stylesheet" href="{{asset('/assets/backend/vendor/izitoast/css/iziToast.min.css')}}">
 
 
     <!-- Template Main CSS File -->
-    <link href="/assets/backend/css/style.css" rel="stylesheet">
+    <link href="{{asset('/assets/backend/css/style.css')}}" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: NiceAdmin
@@ -46,7 +46,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-            <img src="/assets/backend/img/logo.png" alt="">
+            <img src="{{asset('/assets/backend/img/logo.png')}}" alt="">
             <span class="d-none d-lg-block">NiceAdmin</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -60,7 +60,7 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/assets/backend/img/madhowl.jpeg" alt="Profile" class="rounded-circle">
+                    <img src="{{asset('/assets/backend/img/madhowl.jpeg')}}" alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -73,11 +73,13 @@
                         <hr class="dropdown-divider">
                     </li>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="/admin/logout">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Выйти</span>
-                        </a>
+                    <li >
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary w-100 m-2 ">
+                                <i class="bi bi-box-arrow-right"></i> Выйти
+                                </button>
+                        </form>
                     </li>
 
                 </ul><!-- End Profile Dropdown Items -->
@@ -88,11 +90,11 @@
 
 </header><!-- End Header -->
 <!-- ======= Sidebar ======= -->
-@include('partials.sidebar')
+@include('backend.partials.sidebar')
 
 <!-- End Sidebar-->
 <main id="main" class="main">
-    @include('partials.pagetitle')
+    @include('backend.partials.pagetitle')
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
@@ -120,18 +122,18 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/assets/backend/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="/assets/backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/backend/vendor/chart.js/chart.umd.js"></script>
-<script src="/assets/backend/vendor/echarts/echarts.min.js"></script>
-<script src="/assets/backend/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="/assets/backend/vendor/tinymce/tinymce.min.js"></script>
-<script src="/assets/backend/vendor/php-email-form/validate.js"></script>
+<script src="{{asset('/assets/backend/vendor/apexcharts/apexcharts.min.js')}}"></script>
+<script src="{{asset('/assets/backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/assets/backend/vendor/chart.js/chart.umd.js')}}"></script>
+<script src="{{asset('/assets/backend/vendor/echarts/echarts.min.js')}}"></script>
+<script src="{{asset('/assets/backend/vendor/simple-datatables/simple-datatables.js')}}"></script>
+<script src="{{asset('/assets/backend/vendor/tinymce/tinymce.min.js')}}"></script>
+<script src="{{asset('/assets/backend/vendor/php-email-form/validate.js')}}"></script>
 
-<script src="/assets/backend/vendor/izitoast/js/iziToast.min.js" type="text/javascript"></script>
+<script src="{{asset('/assets/backend/vendor/izitoast/js/iziToast.min.js')}}" type="text/javascript"></script>
 
 <!-- Template Main JS File -->
-<script src="/assets/backend/js/main.js"></script>
+<script src="{{asset('/assets/backend/js/main.js')}}"></script>
 @if ($message) <> [])
 
 
@@ -139,10 +141,10 @@
     iziToast.show({
         theme: 'light',
         icon: '', //'bi bi-emoji-smile-fill',
-        iconUrl:'',//'/assets/backend/img/message/sick3.gif',
+        iconUrl:'',//'{{asset('/assets/backend/img/message/sick3.gif')}}',
         color: 'green',
         timeout: 4000,
-        image: '/assets/backend/img/message/sick3.gif',
+        image: '{{asset('/assets/backend/img/message/sick3.gif')}}',
         title: 'Hey',
         message: '{{$message['message']}}',
         position: '{{$message['position']}}', //center, bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter

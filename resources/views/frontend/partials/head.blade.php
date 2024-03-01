@@ -25,6 +25,7 @@
     <link href="{{ asset('assets/frontend/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/vendor//jqcloud/jqcloud.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/frontend/css/style.css')}}" rel="stylesheet">

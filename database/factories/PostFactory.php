@@ -26,7 +26,7 @@ class PostFactory extends Factory
             'description'=>fake()->realText(250),
             'active'=>1,
             'image'=>fake()->imageUrl(1024,768,'cats'),
-            'content'=>fake()->realText(),
+            'content'=>fake()->realTextBetween(1500, 5000),
         ];
     }
 }
