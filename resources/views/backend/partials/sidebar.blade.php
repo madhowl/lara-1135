@@ -15,6 +15,11 @@
                 <i class="bi bi-journal-text"></i><span>Статьи</span>
             </a>
         </li><!-- End Articles Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('admin.tag.index')}}">
+                <i class="bi bi-journal-text"></i><span>Тэги</span>
+            </a>
+        </li><!-- End Articles Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="/admin/users">
