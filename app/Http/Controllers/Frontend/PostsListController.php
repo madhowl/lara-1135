@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Front\PostResource;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
@@ -14,6 +15,7 @@ class PostsListController extends Controller
      */
     public function __invoke()
     {
+       
         $posts = Post::with('tags')->addSelect(
             [
                 'category_name' => Category::select('title')
@@ -24,7 +26,7 @@ class PostsListController extends Controller
 //                    ->whereColumn('category_id', 'categories.id'),
             ]
         )->latest()->paginate(15);
-        //$posts = Post::with('tags')->paginate(10)->dd();
+        //$posts = Post::with('tags','category')->paginate(10)->dd();
         return view('frontend.blog',compact('posts'));
     }
 }
