@@ -10,12 +10,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ $title }}</h5>
-                        <form action="{{ route('admin.tag.store') }}" method="post">
+                        <form action="{{ route('admin.tag.update',$tag->id) }}" method="post">
                             @csrf
+                            @method('PATCH')
                             <div class="row g-3">
                                 <div class="col-12">
                                     <label for="inputText" class="col-sm-2 col-form-label"> Заголовок </label>
-                                    <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ old('name')}}">
+                                    <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
+                                           value="{{$tag->name}}">
                                     @error('name')
 <div class="alert alert-danger">{{ $message }} </div>
 @enderror

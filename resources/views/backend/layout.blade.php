@@ -134,7 +134,7 @@
 
 <!-- Template Main JS File -->
 <script src="{{asset('/assets/backend/js/main.js')}}"></script>
-@if ($message) <> [])
+@if (Session::has('message'))
 
 
 <script>
@@ -146,8 +146,8 @@
         timeout: 4000,
         image: '{{asset('/assets/backend/img/message/sick3.gif')}}',
         title: 'Hey',
-        message: '{{$message['message']}}',
-        position: '{{$message['position']}}', //center, bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+        message: '{{ Session::get('message') }}',
+        position: 'topRight', // center, bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
         progressBarColor: 'rgb(0, 255, 184)'
     });
 

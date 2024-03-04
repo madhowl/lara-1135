@@ -6,14 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class Edit extends Controller
+class CreateController extends Controller
 {
-    public function __invoke(Tag $tag)
+    public function __invoke()
     {
-        $title = 'Тэги';
-        $message = [];
-        dd($tag);
+        $title = 'Добавить новый Тэг';
+        $tags = Tag::all();
         return view('backend.tag.create',
-            compact('title', 'tags', 'message'));
+            compact('title', 'tags'));
     }
 }
