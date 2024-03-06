@@ -10,8 +10,7 @@ class CreateController extends Controller
     public function __invoke()
     {
         $title = 'Добавить новую категорию';
-        $categories = Category::all();
         return view('backend.category.create',
-            compact('title', 'categories'));
+            compact('title', ));
     }
 }

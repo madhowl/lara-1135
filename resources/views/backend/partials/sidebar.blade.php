@@ -4,14 +4,14 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/admin/">
+            <a class="nav-link collapsed" href="{{route('admin.index')}}">
                 <i class="bi bi-grid"></i>
                 <span>Панель управления</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/admin/articles">
+            <a class="nav-link collapsed" href="{{route('admin.post.index')}}">
                 <i class="bi bi-journal-text"></i><span>Статьи</span>
             </a>
         </li><!-- End Articles Nav -->

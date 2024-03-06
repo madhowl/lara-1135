@@ -11,8 +11,7 @@ class CreateController extends Controller
     public function __invoke()
     {
         $title = 'Добавить новый Тэг';
-        $tags = Tag::all();
         return view('backend.tag.create',
-            compact('title', 'tags'));
+            compact('title', ));
     }
 }
