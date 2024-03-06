@@ -23,6 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title'=>'required|unique:categories|max:40',
+            'image'=>'url|nullable',
         ];
     }
 }

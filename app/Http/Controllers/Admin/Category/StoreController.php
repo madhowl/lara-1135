@@ -12,9 +12,9 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
+
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
-        dd($data);
         Category::firstOrCreate($data);
         Session::flash('message', 'Category added successfully');
         return redirect(route('admin.category.index'));
