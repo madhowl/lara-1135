@@ -1,12 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Tag\CreateController;
-use App\Http\Controllers\Admin\Tag\DestroyController;
-use App\Http\Controllers\Admin\Tag\EditController;
-use App\Http\Controllers\Admin\Tag\IndexController;
-use App\Http\Controllers\Admin\Tag\ShowController;
-use App\Http\Controllers\Admin\Tag\StoreController;
-use App\Http\Controllers\Admin\Tag\UpdateController;
 use App\Http\Controllers\Frontend\PostInTagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -39,13 +32,22 @@ Auth::routes();
 Route::prefix('/admin')->group(function () {
     Route::get('/', DashboardController::class)->name('admin.index');
     Route::get('/logout', LogoutController::class)->name('admin.logout');
-    Route::prefix('/tags')->group(function () {
-        Route::get('/', IndexController::class)->name('admin.tag.index');
-        Route::get('/create', CreateController::class)->name('admin.tag.create');
-        Route::get('/show/{tag}', ShowController::class)->name('admin.tag.show');
-        Route::post('/store', StoreController::class)->name('admin.tag.store');
-        Route::get('/edit/{tag}', EditController::class)->name('admin.tag.edit');
-        Route::delete('/delete/{tag}', DestroyController::class)->name('admin.tag.delete');
-        Route::patch('/update/{tag}', UpdateController::class)->name('admin.tag.update');
+    Route::prefix('/tag')->group(function () {
+        Route::get('/', App\Http\Controllers\Admin\Tag\IndexController::class)->name('admin.tag.index');
+        Route::get('/create', App\Http\Controllers\Admin\Tag\CreateController::class)->name('admin.tag.create');
+        Route::get('/show/{tag}', App\Http\Controllers\Admin\Tag\ShowController::class)->name('admin.tag.show');
+        Route::post('/store', App\Http\Controllers\Admin\Tag\StoreController::class)->name('admin.tag.store');
+        Route::get('/edit/{tag}', App\Http\Controllers\Admin\Tag\EditController::class)->name('admin.tag.edit');
+        Route::delete('/delete/{tag}', App\Http\Controllers\Admin\Tag\DestroyController::class)->name('admin.tag.delete');
+        Route::patch('/update/{tag}', App\Http\Controllers\Admin\Tag\UpdateController::class)->name('admin.tag.update');
+    });
+    Route::prefix('/category')->group(function () {
+        Route::get('/', App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
+        Route::get('/create', App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.category.create');
+        Route::get('/show/{category}', App\Http\Controllers\Admin\Category\ShowController::class)->name('admin.category.show');
+        Route::post('/store', App\Http\Controllers\Admin\Category\StoreController::class)->name('admin.category.store');
+        Route::get('/edit/{category}', App\Http\Controllers\Admin\Category\EditController::class)->name('admin.category.edit');
+        Route::delete('/delete/{category}', App\Http\Controllers\Admin\Category\DestroyController::class)->name('admin.category.delete');
+        Route::patch('/update/{category}', App\Http\Controllers\Admin\Category\UpdateController::class)->name('admin.category.update');
     });
 })->middleware('auth');
