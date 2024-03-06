@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Session;
 
 class DestroyController extends Controller

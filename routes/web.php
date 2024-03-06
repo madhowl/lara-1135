@@ -29,6 +29,11 @@ Route::get('/post', [PostController::class, 'index'])->name('post.index');
 
 
 Auth::routes();
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Route::prefix('/admin')->group(function () {
     Route::get('/', DashboardController::class)->name('admin.index');
     Route::get('/logout', LogoutController::class)->name('admin.logout');

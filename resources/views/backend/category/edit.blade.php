@@ -23,6 +23,8 @@
 @enderror
                                 </div>
                             </div>
+
+
                             <div class="text-center p-3">
                                 <input type="submit" class="btn btn-primary" value="Сохранить">
                                 <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">Закрыть</a>
@@ -33,4 +35,10 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+ <script src="{{asset('/vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
+ <script>
+     $('#lfm').filemanager('image');
+ </script>
 @endsection
