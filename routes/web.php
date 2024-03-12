@@ -19,9 +19,10 @@ use App\Http\Controllers\Admin\LogoutController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
 
 Route::get('/', PostsListController::class)->name('home');
-Route::get('/home', PostsListController::class)->name('home');
+//Route::get('/home', PostsListController::class)->name('home');
 Route::get('/category/{slug}', PostInCategoryController::class)->name('category');
 Route::get('/post/{slug}', SinglePostController::class)->name('post');
 Route::get('/tag/{tag:slug}', PostInTagController::class)->name('tag');
@@ -34,7 +35,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::prefix('/admin')->group(function () {
+Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/', DashboardController::class)->name('admin.index');
     Route::post('/logout', LogoutController::class)->name('admin.logout');
     Route::prefix('/tag')->namespace('App\Http\Controllers\Admin\Tag')->group(function () {
@@ -63,7 +64,5 @@ Route::prefix('/admin')->group(function () {
         Route::get('/edit/{post}', EditController::class)->name('admin.post.edit');
         Route::delete('/delete/{post}', DestroyController::class)->name('admin.post.delete');
         Route::patch('/update/{post}', UpdateController::class)->name('admin.post.update');
-    })->middleware(['web','auth']);;
-})->middleware('auth');
-
-Auth::routes();
+    });
+});
