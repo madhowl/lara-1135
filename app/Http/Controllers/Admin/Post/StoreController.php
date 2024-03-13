@@ -12,11 +12,23 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
-
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
-        Post::firstOrCreate($data);
+        $post = Post::create(
+            [
+                'title'       => $data['title'],
+                'slug'        => $data['slug'],
+                'category_id' => $data['category'],
+                'description' => $data['description'],
+                'image'       => $data['image'],
+                'content'     => $data['content'],
+            ]
+        );
+        if ($request->has('tags')) {
+            $post->tags()->attach($request->tags);
+        }
         Session::flash('message', 'Post added successfully');
+
         return redirect(route('admin.post.index'));
     }
 }
