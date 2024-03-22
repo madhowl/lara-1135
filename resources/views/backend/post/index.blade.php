@@ -62,9 +62,11 @@
                         </table>
                         <!-- End Table with hoverable rows -->
                     </div>
+
+                        {{$posts->onEachSide(1)->links('backend.partials.pagination-b5')}}
+
+
                 </div>
-
-
             </div>
         </div>
     </section>

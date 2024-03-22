@@ -10,7 +10,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $title = 'Список статей';
-        $posts = Post::paginate(15);
+        $posts = Post::orderBy('id', 'desc')->paginate(15);
         return view('backend.post.index',
             compact('title', 'posts'));
     }
