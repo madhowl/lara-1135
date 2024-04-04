@@ -15,6 +15,10 @@ class UpdateController extends Controller
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
         $post->update($data);
+        //dd($request->tags);
+        if ($request->has('tags')) {
+        }
+            $post->tags()->sync($request->tags);
         Session::flash('message', 'Post updated successfully');
         return redirect(route('admin.post.index'));
     }

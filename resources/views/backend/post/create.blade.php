@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ $title }}</h5>
-                        <form action="{{ route('admin.category.store') }}" method="post">
+                        <form action="{{ route('admin.post.store') }}" method="post">
                             @csrf
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Название Статьи</label>
@@ -36,7 +36,7 @@
                                 <div class="row mb-3">
                                     <label class="col-sm-2 col-form-label">Тэги</label>
                                     <div class="col-sm-10">
-                                        <select name="tags[]" class="tags-select2 form-select" multiple aria-label="выберите название категории">
+                                        <select name="tags[]" class="tags-select2 form-select" multiple aria-label="">
                                             @foreach ($tags as $tag)
                                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                             @endforeach
@@ -57,12 +57,12 @@
                                     </div>
                                 <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Текст статьи</label>
-                            <textarea id="my-description-editor" name="description" class="form-control">{!! old('description', 'test editor content') !!}</textarea>
+                                <label class="col-sm-2 col-form-label">Краткое содержание статьи</label>
+                                <textarea id="my-editor" name="content" class="form-control">{!! old('content', 'test editor content') !!}</textarea>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-2 col-form-label">Краткое содержание статьи</label>
-                            <textarea id="my-editor" name="content" class="form-control">{!! old('content', 'test editor content') !!}</textarea>
+                                <label class="col-sm-2 col-form-label">Текст статьи</label>
+                            <textarea id="my-description-editor" name="description" class="form-control">{!! old('description', 'test editor content') !!}</textarea>
                             </div>
                             <div class="text-center p-3">
                                 <input type="submit" class="btn btn-primary" value="Сохранить">
@@ -96,6 +96,7 @@
   };
 </script>
     <script>
+CKEDITOR.replace('my-description-editor', options);
 CKEDITOR.replace('my-editor', options);
 </script>
 

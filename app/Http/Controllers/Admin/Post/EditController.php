@@ -14,6 +14,10 @@ class EditController extends Controller
         $title = 'Редактирование Стати ID: '.$post->id;
         $categories = Category::all();
         $tags = Tag::all();
+//        $a=$post->tags()->pluck('name','id');
+//        $a->each(function ($item, $key) {
+//            echo ($key == 4) ? "Нашёл " :  "no";
+//});die;
         return view('backend.post.edit',
             compact('title', 'post', 'categories', 'tags'));
     }
